@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">registro</string>
+    <string name="Register">registro</string>
+    <string name="RegisterWithFacebook">Register With Facebook</string>
+    <string name="Name">Name</string>
+    <string name="UserName">Username</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Re_type_Password">Re type Password</string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
+    <string name="Gender">Gender</string>
+</resources>
