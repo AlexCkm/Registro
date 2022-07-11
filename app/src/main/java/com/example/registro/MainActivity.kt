@@ -1,7 +1,9 @@
 package com.example.registro
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.Menu
 import com.example.registro.databinding.ActivityMainBinding
 
@@ -17,6 +19,16 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnRegister.setOnClickListener {
+            val myIntent = Intent(this,DataActivity::class.java )
+            startActivity(myIntent)
+        }
+
+        binding.btnFacebook.setOnClickListener {
+            val myIntent = Intent(this, DataActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
         val actionBar = supportActionBar
 
@@ -30,13 +42,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menu?.add(Menu.NONE, ID_Ajustes, Menu.NONE,"Ajustes")
         menu?.add(Menu.NONE, ID_MasAjustes, Menu.NONE,"Mas ajustes")
         menu?.add(Menu.NONE, ID_Snackbar, Menu.NONE,"Informacíon")
         return super.onCreateOptionsMenu(menu)
     }
-
 
 
 }

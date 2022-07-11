@@ -10,4 +10,7 @@
     <string name="Male">Male</string>
     <string name="Female">Female</string>
     <string name="Gender">Gender</string>
+    <string name="Phone">Phone</string>
+    <string name="Address">Address</string>
+    <string name="Business">Business</string>
 </resources>

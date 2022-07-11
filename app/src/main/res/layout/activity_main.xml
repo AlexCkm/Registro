@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegister"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.839" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnFacebook"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -118,14 +118,14 @@
         app:layout_constraintVertical_bias="0.649">
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rbMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Male" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/rbFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
