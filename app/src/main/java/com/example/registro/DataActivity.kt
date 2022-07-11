@@ -16,31 +16,30 @@ class DataActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        getSpinner(binding.spinner)
+    }
 
+    fun getSpinner(spinner: Spinner){
 
-        fun getSpinner(spinner: Spinner){
+        val adaptador: ArrayAdapter<*> = ArrayAdapter.createFromResource(this, R.array.SpinnerOne,
+            android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adaptador
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                Spiner = parent?.getItemAtPosition(position).toString()
+                Spiner = "Azul"
 
-            val adaptador: ArrayAdapter<*> = ArrayAdapter.createFromResource(this, R.array.SpinnerOne,
-                android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adaptador
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    Spiner = parent?.getItemAtPosition(position).toString()
-                    Spiner = "Azul"
-
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    Spiner = "Rojo"
-
-                }
             }
 
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Spiner = "Rojo"
+
+            }
         }
 
     }

@@ -3,8 +3,12 @@ package com.example.registro
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.Menu
+import android.view.View
+import android.widget.RadioButton
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import com.example.registro.SharedPreferences.Companion.prefs
 import com.example.registro.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,13 +23,19 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        initUI()
+        chesckUserValues()
+
+
+
         binding.btnRegister.setOnClickListener {
             val myIntent = Intent(this,DataActivity::class.java )
             startActivity(myIntent)
         }
 
         binding.btnFacebook.setOnClickListener {
-            val myIntent = Intent(this, DataActivity::class.java)
+            val myIntent = Intent(this, InfomationActivity::class.java)
             startActivity(myIntent)
 
         }
@@ -49,6 +59,58 @@ class MainActivity : AppCompatActivity() {
         menu?.add(Menu.NONE, ID_Snackbar, Menu.NONE,"Informacíon")
         return super.onCreateOptionsMenu(menu)
     }
+    fun initUI(){
+        binding.btnFacebook.setOnClickListener {
+            accessSharedPreferences()
+        }
+    }
 
+    fun chesckUserValues(){
+        if (binding.etName.text.isNotEmpty())
+            goAccess()
 
+    }
+
+    fun accessSharedPreferences() {
+        if (binding.etName.toString().isNotEmpty()&&
+            binding.etUserName.toString().isNotEmpty()&&
+            binding.etEmail.toString().isNotEmpty()&&
+            binding.etEmail.toString().isNotEmpty()&&
+            binding.etPass.toString().isNotEmpty()&&
+            binding.etRePassword.toString().isNotEmpty())
+        {
+            prefs.saveName(binding.etName.text.toString())
+        prefs.saveUser_name(binding.etUserName.text.toString())
+        prefs.saveEmail(binding.etEmail.text.toString())
+        prefs.savePass(binding.etPass.text.toString())
+        prefs.saveRepass(binding.etRePassword.text.toString())
+
+        goAccess()
+        }else{
+            Toast.makeText(this, "Rellene este parametro", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    fun onRadioButton(view: View){
+        if (view is RadioButton){
+            val checked = view.isChecked
+        }
+        when(view.getId()){
+            R.id.rbFemale ->
+                if (checked){
+                    prefs.saveRadioBoton("Female")
+                }
+            R.id.rbMale ->
+                if (checked){
+                    pref
+                }
+        }
+    }
+
+    private fun goAccess(){
+        startActivity(Intent(this, InfomationActivity::class.java))
+    }
+//    override fun onCreateOptionMenu{
+//        menu.add(Menu)
+//    }
 }
